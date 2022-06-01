@@ -11,6 +11,9 @@ nosso planeta. Diante disso, o time de operações solicitou que fosse criado um
 para realizar a gestão das viagens à Marte da empresa "Tourism on Mars Company".
 
 2) Requisitos não funcionais
+
 a) A aplicação deverá ser escrita utilizando Java com SpringBoot;
+
 b) A aplicação deverá ter uma interface utilizando JSP ou Thymeleaf;
+
 c) Os formatos de entrada de dados deverão ser validados;
