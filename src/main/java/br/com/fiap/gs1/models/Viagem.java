@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class Viagem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
 	@Column(nullable = false)
 	private String dataDecolagem;
@@ -26,7 +26,8 @@ public class Viagem {
 
 	}
 
-	public Viagem(int id, String dataDecolagem, int duracaoEstadia, int assentosDisp, String modeloNave,
+
+	public Viagem(Long id, String dataDecolagem, int duracaoEstadia, int assentosDisp, String modeloNave,
 			String primeiroComand, String matriPrimComand, String segundoComand, String matriSegunComand) {
 		super();
 		this.id = id;
@@ -40,16 +41,22 @@ public class Viagem {
 		this.matriSegunComand = matriSegunComand;
 	}
 
-	public int getId() {
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
 
+
 	public String getDataDecolagem() {
-		return dataDecolagem;
+		String ano = dataDecolagem.substring(0,4);
+		String mes = dataDecolagem.substring(5,7);
+		String dia = dataDecolagem.substring(8,10);
+		return dia+"/"+mes+"/"+ano;
 	}
 
 	public void setDataDecolagem(String dataDecolagem) {

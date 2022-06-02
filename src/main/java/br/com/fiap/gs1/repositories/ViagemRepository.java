@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.com.fiap.gs1.models.Viagem;
 
 @Repository
-public interface ViagemRepository extends JpaRepository<Viagem, Integer> {
+public interface ViagemRepository extends JpaRepository<Viagem, Long> {
 
 }

@@ -1,0 +1,55 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<header
+	th:replace="~{cabecalho :: head('TMC - Home')}"></header>
+
+<body style="background-color: #ccc;">
+	<nav th:replace="~{menu :: nav}"></nav>
+
+
+	<div class="containerPrincipal" style="padding: 5px">
+		<h3 class="text-center">Lista de Viagens Cadastradas</h3>
+				<hr>
+		<table id="tbProduto" class="table table-hover table-bordered table-sm" >
+			<thead>
+				<tr>
+						<th scope="col">Modelo da nave</th>
+						<th scope="col">Data de Decolagem</th>
+						<th scope="col">Duração de dias em Marte</th>
+						<th scope="col">Assentos disponíveis</th>
+						<th scope="col">1º Comandante:</th>
+						<th scope="col">Matricula do 1º Comandante:</th>
+						<th scope="col">2º Comandante:</th>
+						<th scope="col">Matricula do 2º Comandante:</th>
+					
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="viagem : ${listarViagem}">
+					<td th:text="${viagem.modeloNave}"></td>
+					<td th:text="${viagem.dataDecolagem}"></td>
+					<td th:text="${viagem.duracaoEstadia}"></td>
+					<td th:text="${viagem.assentosDisp}"></td>
+					<td th:text="${viagem.primeiroComand}"></td>
+					<td th:text="${viagem.matriPrimComand}"></td>
+					<td th:text="${viagem.segundoComand}"></td>
+					<td th:text="${viagem.matriSegunComand}"></td>
+						<td>
+						<div style="display: flex;">
+						<a  th:href="@{/viagem/{viagemId}/edit (viagemId = ${viagem.id})}" class="btn btn-outline-info btn-sm" >
+							Editar</a>
+						<a th:href="@{/viagem/{viagemId}/delete (viagemId = ${viagem.id})}" class="btn btn-outline-danger btn-sm" style="margin-left: 10px;">
+							Deletar</a>
+							</div>
+					</td>
+					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>

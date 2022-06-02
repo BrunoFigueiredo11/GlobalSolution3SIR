@@ -1,0 +1,72 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{cabecalho :: head('TMC - Alterar Viagem')}"></header>
+
+<body style="background-color: #ccc;">
+	<nav th:replace="~{menu :: nav}"></nav>
+	<section class=" container mt-3">
+		<h3 class="text-center">Alteração de Viagem</h3>
+		<hr>
+		<form class="row g-3" th:object="${viagemDto}" action="#" th:action="@{/viagem/{id} (id=${viagemId})}" method="POST">
+					<div class="col-5">
+				<label class="form-label">Nome do modelo da nave: </label>
+				<input type="text" th:errorclass="is-invalid" th:field="*{modeloNave}"
+							class="form-control">
+								<div class="invalid-feedback" th:errors="*{modeloNave}"></div>
+			</div>
+			<div class="col-md-2">
+				<label class="form-label">Data de Decolagem:</label>
+				<input type="date" th:errorclass="is-invalid" th:field="*{dataDecolagem}"
+							class="form-control">
+								<div class="invalid-feedback" th:errors="*{dataDecolagem}"></div>
+			</div>
+			<div class="col-5"></div>
+			<div class="col-md-3">
+				<label class="form-label">Duração de dias de estadia em Marte: </label>
+				<input type="number" th:errorclass="is-invalid" th:field="*{duracaoEstadia}"
+							class="form-control" required>
+								<div class="invalid-feedback" th:errors="*{duracaoEstadia}"></div>
+			</div>
+			<div class="col-4">
+				<label class="form-label">Quantidade de assentos disponíveis na nave: </label>
+				<input type="number" th:errorclass="is-invalid" th:field="*{assentosDisp}"
+							class="form-control" required>
+								<div class="invalid-feedback" th:errors="*{assentosDisp}"></div>
+			</div>
+			<div class="col-5"></div>
+			<div class="col-md-5">
+				<label class="form-label">Nome do 1º Comandante:</label>
+				<input type="text" th:errorclass="is-invalid" th:field="*{primeiroComand}"
+							class="form-control">
+								<div class="invalid-feedback" th:errors="*{primeiroComand}"></div>
+			</div>
+			<div class="col-md-5">
+				<label class="form-label">Matricula do 1º Comandante:</label>
+				<input type="text" th:errorclass="is-invalid" th:field="*{matriPrimComand}"
+							class="form-control">
+								<div class="invalid-feedback" th:errors="*{matriPrimComand}"></div>
+			</div>
+			<div class="col-md-5">
+				<label class="form-label">Nome do 2º Comandante:</label>
+				<input type="text" th:errorclass="is-invalid" th:field="*{segundoComand}"
+							class="form-control">
+								<div class="invalid-feedback" th:errors="*{segundoComand}"></div>
+			</div>
+			<div class="col-md-5">
+				<label class="form-label">Matricula do 2º Comandante:</label>
+				<input type="text" th:errorclass="is-invalid" th:field="*{matriSegunComand}"
+							class="form-control">
+								<div class="invalid-feedback" th:errors="*{matriSegunComand}"></div>
+			</div>
+			<div class="d-grid gap-3 col-6 mx-auto">
+
+				<input class="btn btn-dark" type="submit" value="Salvar Alteração" />
+
+				<a class="btn btn-dark" href="/home">Voltar</a>
+
+			</div>
+		</form>
+	</section>
+</body>
+</html>
