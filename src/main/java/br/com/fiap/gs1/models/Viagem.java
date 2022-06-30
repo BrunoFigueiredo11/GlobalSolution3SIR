@@ -15,6 +15,7 @@ public class Viagem {
 	@Column(nullable = false)
 	private String dataDecolagem;
 	private int duracaoEstadia;
+	private String dataRetorno;
 	private int assentosDisp;
 	private String modeloNave;
 	private String primeiroComand;
@@ -26,13 +27,16 @@ public class Viagem {
 
 	}
 
+	
 
-	public Viagem(Long id, String dataDecolagem, int duracaoEstadia, int assentosDisp, String modeloNave,
-			String primeiroComand, String matriPrimComand, String segundoComand, String matriSegunComand) {
+	public Viagem(Long id, String dataDecolagem, int duracaoEstadia, String dataRetorno, int assentosDisp,
+			String modeloNave, String primeiroComand, String matriPrimComand, String segundoComand,
+			String matriSegunComand) {
 		super();
 		this.id = id;
 		this.dataDecolagem = dataDecolagem;
 		this.duracaoEstadia = duracaoEstadia;
+		this.dataRetorno = dataRetorno;
 		this.assentosDisp = assentosDisp;
 		this.modeloNave = modeloNave;
 		this.primeiroComand = primeiroComand;
@@ -40,6 +44,7 @@ public class Viagem {
 		this.segundoComand = segundoComand;
 		this.matriSegunComand = matriSegunComand;
 	}
+
 
 
 	public Long getId() {
@@ -50,6 +55,22 @@ public class Viagem {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	
+
+	public String getDataRetorno() {
+		String ano = dataRetorno.substring(0,4);
+		String mes = dataRetorno.substring(5,7);
+		String dia = dataRetorno.substring(8,10);
+		return dia+"/"+mes+"/"+ano;
+	}
+
+
+
+	public void setDataRetorno(String dataRetorno) {
+		this.dataRetorno = dataRetorno;
+	}
+
 
 
 	public String getDataDecolagem() {

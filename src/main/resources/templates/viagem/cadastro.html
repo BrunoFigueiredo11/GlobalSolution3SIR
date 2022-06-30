@@ -25,13 +25,13 @@
 			<div class="col-md-3">
 				<label class="form-label">Duração de dias de estadia em Marte: </label>
 				<input type="number" th:errorclass="is-invalid" th:field="*{duracaoEstadia}"
-							class="form-control" required>
+							class="form-control" min="0" required>
 								<div class="invalid-feedback" th:errors="*{duracaoEstadia}"></div>
 			</div>
 			<div class="col-4">
 				<label class="form-label">Quantidade de assentos disponíveis na nave: </label>
 				<input type="number" th:errorclass="is-invalid" th:field="*{assentosDisp}"
-							class="form-control" required>
+							class="form-control" step="3" min="0" required>
 								<div class="invalid-feedback" th:errors="*{assentosDisp}"></div>
 			</div>
 			<div class="col-5"></div>

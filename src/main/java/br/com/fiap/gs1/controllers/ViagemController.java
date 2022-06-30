@@ -46,8 +46,8 @@ public class ViagemController {
 		if (bindingResult.hasErrors()) {
 			return new ModelAndView("viagem/cadastro");
 		}
-
 		Viagem viagemEntity = modelMapper.map(viagemDto, Viagem.class);
+		viagemEntity.setDataRetorno(viagemDto.calculaData(viagemEntity));
 		viagemRepository.save(viagemEntity);
 		return new ModelAndView("redirect:/home");
 	}
@@ -72,7 +72,7 @@ public class ViagemController {
 			return model;
 		}
 
-		//
+		
 		return new ModelAndView("redirect:/home");
 	}
 	
@@ -90,6 +90,7 @@ public class ViagemController {
 		if(optionalViagem.isPresent()){
 			Viagem viagem = modelMapper.map(request, Viagem.class);
 			viagem.setId(id);
+			viagem.setDataRetorno(request.calculaData(viagem));
 			viagemRepository.save(viagem);
 			return new ModelAndView("redirect:/home");
 		}
